@@ -828,13 +828,7 @@
 
 	return FALSE
 
-
-/*
-Check if this holder contains this reagent.
-Reagent takes a PATH to a reagent.
-Amount checks for having a specific amount of that chemical.
-Needs matabolizing takes into consideration if the chemical is matabolizing when it's checked.
-*/
+/// Check if this holder contains this reagent
 /datum/reagents/proc/has_reagent(reagent, amount = -1, needs_metabolizing = FALSE)
 	var/list/cached_reagents = reagent_list
 	for(var/_reagent in cached_reagents)
