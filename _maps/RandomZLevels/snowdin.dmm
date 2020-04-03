@@ -4161,6 +4161,11 @@
 /obj/item/kitchen/fork,
 /turf/open/floor/plasteel/cafeteria,
 /area/awaymission/snowdin/post/messhall)
+"jA" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/plantgenes,
+/turf/open/floor/plating,
+/area/awaymission/snowdin/post/hydro)
 "jB" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	piping_layer = 3;
@@ -29055,7 +29060,7 @@ gE
 hw
 hX
 iI
-gJ
+jA
 ke
 kQ
 lF

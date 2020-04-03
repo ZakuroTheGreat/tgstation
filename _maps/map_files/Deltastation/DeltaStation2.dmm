@@ -642,32 +642,11 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/library)
-"abu" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/obj/machinery/light_switch{
-	pixel_x = 26;
-	pixel_y = 8
-	},
-/obj/machinery/camera{
-	c_tag = "Hydroponics";
-	dir = 8;
-	name = "service camera"
-	},
-/obj/effect/turf_decal/delivery,
-/obj/structure/table,
-/turf/open/floor/plasteel,
-/area/hydroponics)
 "abv" = (
 /obj/item/stack/cable_coil,
 /obj/structure/lattice/catwalk,
 /turf/open/space,
 /area/solar/starboard/fore)
-"abw" = (
-/obj/structure/table,
-/turf/open/floor/plasteel,
-/area/hydroponics)
 "abC" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -33293,6 +33272,26 @@
 	},
 /turf/open/floor/plasteel,
 /area/hydroponics)
+"bnm" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/machinery/light_switch{
+	pixel_x = 26;
+	pixel_y = 8
+	},
+/obj/machinery/plantgenes{
+	pixel_y = 6
+	},
+/obj/machinery/camera{
+	c_tag = "Hydroponics";
+	dir = 8;
+	name = "service camera"
+	},
+/obj/effect/turf_decal/delivery,
+/obj/structure/table,
+/turf/open/floor/plasteel,
+/area/hydroponics)
 "bnn" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -33974,6 +33973,13 @@
 "boB" = (
 /obj/machinery/holopad,
 /obj/effect/turf_decal/bot,
+/turf/open/floor/plasteel,
+/area/hydroponics)
+"boC" = (
+/obj/machinery/smartfridge/disks{
+	pixel_y = 2
+	},
+/obj/structure/table,
 /turf/open/floor/plasteel,
 /area/hydroponics)
 "boD" = (
@@ -149965,8 +149971,8 @@ bar
 bhF
 bjv
 blk
-abu
-abw
+bnm
+boC
 bqC
 bqC
 bum
