@@ -34,7 +34,7 @@
 	. = ..()
 	if(.)
 		return
-	if(user.canUseTopic(src, !issilicon(user), NO_DEXTERY) && is_servant_of_ratvar(user))
+	if(user.canUseTopic(src, !issilicon(user), NO_DEXTERITY) && is_servant_of_ratvar(user))
 		if(!can_access_clockwork_power(src, mania_cost))
 			to_chat(user, "<span class='warning'>[src] needs more power to function!</span>")
 			return 0
@@ -63,4 +63,4 @@
 				break
 		if(!M)
 			M = H.apply_status_effect(STATUS_EFFECT_MANIAMOTOR, src)
-		M.severity = CLAMP(M.severity + ((11 - get_dist(src, H)) * efficiency * efficiency), 0, MAX_MANIA_SEVERITY)
+		M.severity = clamp(M.severity + ((11 - get_dist(src, H)) * efficiency * efficiency), 0, MAX_MANIA_SEVERITY)

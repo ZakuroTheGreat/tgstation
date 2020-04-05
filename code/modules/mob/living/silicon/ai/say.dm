@@ -167,5 +167,5 @@
 	if(is_servant_of_ratvar(src))
 		// Ratvarian AIs can only speak Ratvarian
 		. = ispath(dt, /datum/language/ratvar)
-	else
-		. = ..()
+// 	else
+//		. = ..()

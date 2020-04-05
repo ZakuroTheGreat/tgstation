@@ -49,6 +49,7 @@
 		forceMove(T)
 		Moved(OldLoc, direct)
 
+
 /mob/camera/eminence/Process_Spacemove(movement_dir = 0)
 	return TRUE
 

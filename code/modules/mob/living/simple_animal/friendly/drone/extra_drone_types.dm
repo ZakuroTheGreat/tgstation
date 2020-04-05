@@ -156,7 +156,6 @@
 	laws = "0. Purge all untruths and honor Ratvar."
 	default_storage = /obj/item/storage/toolbox/brass/prefilled
 	hacked = TRUE
-	visualAppearence = CLOCKDRONE
 	can_be_held = FALSE
 	flavortext = "<b><span class='nezbere'>You are a cogscarab,</span> a tiny building construct of Ratvar. While you're weak and can't recite scripture, \
 	you have a set of quick tools, as well as a replica fabricator that can create brass and convert objects.<br><br>Work with the servants of Ratvar \
@@ -226,14 +225,14 @@
 /mob/living/simple_animal/drone/cogscarab/ratvar_act()
 	fully_heal(TRUE)
 
-/mob/living/simple_animal/drone/cogscarab/update_icons()
-	if(stat != DEAD)
-		if(incapacitated())
-			icon_state = "[visualAppearence]_flipped"
-		else
-			icon_state = visualAppearence
-	else
-		icon_state = "[visualAppearence]_dead"
+// /mob/living/simple_animal/drone/cogscarab/update_icons()
+//	if(stat != DEAD)
+//		if(incapacitated())
+//			icon_state = "[visualAppearence]_flipped"
+//		else
+//			icon_state = visualAppearence
+//	else
+//		icon_state = "[visualAppearence]_dead"
 
 /mob/living/simple_animal/drone/cogscarab/update_mobility()
 	. = ..()

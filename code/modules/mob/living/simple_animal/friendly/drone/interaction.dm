@@ -132,8 +132,8 @@
   * Arguments
   * * hack - Boolean if the drone is being hacked or unhacked
   */
-/mob/living/simple_animal/drone/proc/update_drone_hack(hack)
-	if(!mind)
+/mob/living/simple_animal/drone/proc/update_drone_hack(hack, clockwork)
+	if(!istype(src) || !mind)
 		return
 	if(hack)
 		if(hacked)

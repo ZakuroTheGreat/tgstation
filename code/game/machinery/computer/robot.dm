@@ -105,7 +105,8 @@
 		else
 			to_chat(usr, "<span class='danger'>Access Denied.</span>")
 
-	else if (href_list["magbot"])
+	else (href_list["magbot"])
+		if(isAI(usr) && is_servant_of_ratvar(usr))
 		var/mob/living/silicon/S = usr
 		if((istype(S) && S.hack_software) || IsAdminGhost(usr))
 			var/mob/living/silicon/robot/R = locate(href_list["magbot"]) in GLOB.silicon_mobs

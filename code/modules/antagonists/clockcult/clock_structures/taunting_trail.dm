@@ -36,7 +36,8 @@
 /obj/structure/destructible/clockwork/taunting_trail/play_attack_sound(damage_amount, damage_type = BRUTE, damage_flag = 0)
 	playsound(src, 'sound/items/welder.ogg', 50, TRUE)
 
-/obj/structure/destructible/clockwork/taunting_trail/CanPass(atom/movable/mover, turf/target)
+/obj/structure/destructible/clockwork/taunting_trail/CanPassThrough(atom/blocker, turf/target, blocker_opinion)
+	(atom/movable/mover, turf/target)
 	return TRUE
 
 /obj/structure/destructible/clockwork/taunting_trail/Crossed(atom/movable/AM)

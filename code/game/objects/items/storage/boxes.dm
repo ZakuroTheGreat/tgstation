@@ -75,6 +75,16 @@
 		return 0
 	return ..()
 
+// Engineer survival box
+/obj/item/storage/box/engineer/PopulateContents()
+	new /obj/item/clothing/mask/breath(src)
+	new /obj/item/reagent_containers/hypospray/medipen(src)
+
+	if(!isplasmaman(loc))
+		new /obj/item/tank/internals/emergency_oxygen/engi(src)
+	else
+		new /obj/item/tank/internals/plasmaman/belt(src)
+
 //Mime spell boxes
 
 /obj/item/storage/box/mime

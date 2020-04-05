@@ -30,5 +30,5 @@
 	if(istype(container, /obj/item/mmi/posibrain/soul_vessel))
 		// soul vessels can only speak ratvarian.
 		. = ispath(dt, /datum/language/ratvar)
-	else
-		. = ..()
+//	else
+//. = ..()

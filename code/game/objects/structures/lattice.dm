@@ -18,6 +18,18 @@
 	smooth = SMOOTH_MORE
 	//	flags = CONDUCT_1
 
+
+/obj/structure/lattice/catwalk/clockwork
+	name = "clockwork catwalk"
+	icon = 'icons/obj/smooth_structures/catwalk_clockwork.dmi'
+	canSmoothWith = list(/obj/structure/lattice,
+	/turf/open/floor,
+	/turf/open/indestructible/clock_spawn_room,
+	/turf/closed/wall,
+	/obj/structure/falsewall)
+	smooth = SMOOTH_MORE
+
+
 /obj/structure/lattice/examine(mob/user)
 	. = ..()
 	. += deconstruction_hints(user)
@@ -147,16 +159,6 @@
 		else
 			to_chat(user, "<span class='warning'>You need one floor tile to build atop [src].</span>")
 		return
-
-/obj/structure/lattice/catwalk/clockwork
-	name = "clockwork catwalk"
-	icon = 'icons/obj/smooth_structures/catwalk_clockwork.dmi'
-	canSmoothWith = list(/obj/structure/lattice,
-	/turf/open/floor,
-	/turf/open/indestructible/clock_spawn_room,
-	/turf/closed/wall,
-	/obj/structure/falsewall)
-	smooth = SMOOTH_MORE
 
 /obj/structure/lattice/catwalk/clockwork/Initialize(mapload)
 	. = ..()
