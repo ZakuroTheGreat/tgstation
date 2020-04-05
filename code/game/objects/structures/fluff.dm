@@ -211,10 +211,6 @@
 /obj/structure/fluff/beach_umbrella/syndi
 	icon_state = "syndi_brella"
 
-/obj/structure/fluff/clockwork
-	name = "Clockwork Fluff"
-	icon = 'icons/obj/clockwork_objects.dmi'
-	deconstructible = FALSE
 
 /obj/structure/fluff/clockwork/alloy_shards
 	name = "replicant alloy shards"

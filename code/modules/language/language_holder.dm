@@ -237,6 +237,10 @@ Key procs
 	spoken_languages = list(/datum/language/xenocommon = list(LANGUAGE_ATOM))
 	blocked_languages = list(/datum/language/common = list(LANGUAGE_ATOM))
 
+/datum/language_holder/clockmob
+	languages = list(/datum/language/common, /datum/language/ratvar)
+	only_speaks_language = /datum/language/ratvar
+
 /datum/language_holder/construct
 	understood_languages = list(/datum/language/common = list(LANGUAGE_ATOM),
 								/datum/language/narsie = list(LANGUAGE_ATOM))

@@ -79,6 +79,7 @@
 #define ANTAG_HUD_FUGITIVE	24
 #define ANTAG_HUD_GANGSTER	25
 #define ANTAG_HUD_SPACECOP	26
+#define ANTAG_HUD_CLOCKWORK		22
 
 
 // Notification action types
