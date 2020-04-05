@@ -101,6 +101,32 @@
 					to_chat(R, "[!R.lockcharge ? "<span class='notice'>Your lockdown has been lifted!" : "<span class='alert'>You have been locked down!"]</span>")
 					if(R.connected_ai)
 						to_chat(R.connected_ai, "[!R.lockcharge ? "<span class='notice'>NOTICE - Cyborg lockdown lifted" : "<span class='alert'>ALERT - Cyborg lockdown detected"]: <a href='?src=[REF(R.connected_ai)];track=[html_encode(R.name)]'>[R.name]</a></span><br>")
+
+		else
+			to_chat(usr, "<span class='danger'>Access Denied.</span>")
+
+	else if (href_list["magbot"])
+		var/mob/living/silicon/S = usr
+		if((istype(S) && S.hack_software) || IsAdminGhost(usr))
+			var/mob/living/silicon/robot/R = locate(href_list["magbot"]) in GLOB.silicon_mobs
+			if(istype(R) && !R.emagged && (R.connected_ai == usr || IsAdminGhost(usr)) && !R.scrambledcodes && can_control(usr, R))
+				log_game("[key_name(usr)] emagged [key_name(R)] using robotic console!")
+				message_admins("[ADMIN_LOOKUPFLW(usr)] emagged cyborg [key_name_admin(R)] using robotic console!")
+				R.SetEmagged(TRUE)
+
+	else if(href_list["convert"])
+		if(isAI(usr) && is_servant_of_ratvar(usr))
+			var/mob/living/silicon/robot/R = locate(href_list["convert"]) in GLOB.silicon_mobs
+			if(istype(R) && !is_servant_of_ratvar(R) && R.connected_ai == usr)
+				log_game("[key_name(usr)] converted [key_name(R)] using robotic console!")
+				message_admins("[ADMIN_LOOKUPFLW(usr)] converted cyborg [key_name_admin(R)] using robotic console!")
+				add_servant_of_ratvar(R)
+
+	else if (href_list["killdrone"])
+		if(allowed(usr))
+			var/mob/living/simple_animal/drone/D = locate(href_list["killdrone"]) in GLOB.mob_list
+			if(D.hacked)
+				to_chat(usr, "<span class='danger'>ERROR: [D] is not responding to external commands.</span>")
 			else
 				to_chat(usr, "<span class='danger'>Access Denied.</span>")
 		if("magbot")

@@ -16,6 +16,7 @@
 		/datum/language/monkey,
 		/datum/language/narsie,
 		/datum/language/beachbum,
+		/datum/language/ratvar,
 		/datum/language/aphasia,
 		/datum/language/piratespeak,
 		/datum/language/moffic,
@@ -188,6 +189,7 @@
 		/datum/language/xenocommon,
 		/datum/language/common,
 		/datum/language/draconic,
+		/datum/language/ratvar,
 		/datum/language/monkey))
 
 /obj/item/organ/tongue/alien/Initialize(mapload)
