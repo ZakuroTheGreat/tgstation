@@ -105,27 +105,28 @@
 		else
 			to_chat(usr, "<span class='danger'>Access Denied.</span>")
 
-	else (href_list["magbot"])
-		if(isAI(usr) && is_servant_of_ratvar(usr))
-		var/mob/living/silicon/S = usr
-		if((istype(S) && S.hack_software) || IsAdminGhost(usr))
-			var/mob/living/silicon/robot/R = locate(href_list["magbot"]) in GLOB.silicon_mobs
-			if(istype(R) && !R.emagged && (R.connected_ai == usr || IsAdminGhost(usr)) && !R.scrambledcodes && can_control(usr, R))
-				log_game("[key_name(usr)] emagged [key_name(R)] using robotic console!")
-				message_admins("[ADMIN_LOOKUPFLW(usr)] emagged cyborg [key_name_admin(R)] using robotic console!")
-				R.SetEmagged(TRUE)
-
-	else if(href_list["convert"])
-		if(isAI(usr) && is_servant_of_ratvar(usr))
-			var/mob/living/silicon/robot/R = locate(href_list["convert"]) in GLOB.silicon_mobs
-			if(istype(R) && !is_servant_of_ratvar(R) && R.connected_ai == usr)
-				log_game("[key_name(usr)] converted [key_name(R)] using robotic console!")
-				message_admins("[ADMIN_LOOKUPFLW(usr)] converted cyborg [key_name_admin(R)] using robotic console!")
-				add_servant_of_ratvar(R)
-
-	else if (href_list["killdrone"])
+	if ("magbot")
 		if(allowed(usr))
-			var/mob/living/simple_animal/drone/D = locate(href_list["killdrone"]) in GLOB.mob_list
+			var/mob/living/silicon/S = usr
+			if((istype(S) && S.hack_software) || IsAdminGhost(usr))
+				var/mob/living/silicon/robot/R = locate("magbot") in GLOB.silicon_mobs
+				if(istype(R) && !R.emagged && (R.connected_ai == usr || IsAdminGhost(usr)) && !R.scrambledcodes && can_control(usr, R))
+					log_game("[key_name(usr)] emagged [key_name(R)] using robotic console!")
+					message_admins("[ADMIN_LOOKUPFLW(usr)] emagged cyborg [key_name_admin(R)] using robotic console!")
+					R.SetEmagged(TRUE)
+
+	if("convert")
+		if(allowed(usr))
+			if(isAI(usr) && is_servant_of_ratvar(usr))
+				var/mob/living/silicon/robot/R = locate("convert") in GLOB.silicon_mobs
+				if(istype(R) && !is_servant_of_ratvar(R) && R.connected_ai == usr)
+					log_game("[key_name(usr)] converted [key_name(R)] using robotic console!")
+					message_admins("[ADMIN_LOOKUPFLW(usr)] converted cyborg [key_name_admin(R)] using robotic console!")
+					add_servant_of_ratvar(R)
+
+	if ("killdrone")
+		if(allowed(usr))
+			var/mob/living/simple_animal/drone/D = locate("killdrone") in GLOB.mob_list
 			if(D.hacked)
 				to_chat(usr, "<span class='danger'>ERROR: [D] is not responding to external commands.</span>")
 			else

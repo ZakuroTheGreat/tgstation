@@ -279,9 +279,9 @@
 				if(M.laws.id == DEFAULT_AI_LAWID)
 					O.make_laws()
 
-			SSticker.mode.remove_antag_for_borging(BM.mind)
+			SSticker.mode.remove_antag_for_borging(B.mind)
 			if(!istype(M.laws, /datum/ai_laws/ratvar))
-				/proc/remove_servant_of_ratvar(BM, TRUE)
+				remove_servant_of_ratvar(B, TRUE)
 
 			O.job = "Cyborg"
 
