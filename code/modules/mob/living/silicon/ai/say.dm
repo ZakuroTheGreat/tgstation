@@ -163,9 +163,8 @@
 #undef VOX_DELAY
 #endif
 
-/mob/living/silicon/ai/could_speak_in_language(datum/language/dt)
+/mob/living/silicon/ai/say(message, bubble_type,var/list/spans = list(), sanitize = TRUE, datum/language/language = null, ignore_spam = FALSE, forced = null)
 	if(is_servant_of_ratvar(src))
 		// Ratvarian AIs can only speak Ratvarian
-		. = ispath(dt, /datum/language/ratvar)
-// 	else
-//		. = ..()
+		. = ispath(/datum/language/ratvar)
+
