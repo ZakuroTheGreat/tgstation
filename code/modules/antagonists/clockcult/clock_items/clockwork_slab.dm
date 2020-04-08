@@ -171,11 +171,10 @@
 	ui_interact(user)
 	return TRUE
 
-/obj/item/clockwork/slab/ui_interact(mob/user, ui_key = "main", datum/tgui/ui = null, force_open = FALSE, datum/tgui/master_ui = null, datum/ui_state/state = GLOB.inventory_state)
+/obj/item/clockwork/slab/ui_interact(mob/user, ui_key = "main", datum/tgui/ui = null, force_open = 0, datum/tgui/master_ui = null, datum/ui_state/state = GLOB.inventory_state)
 	ui = SStgui.try_update_ui(user, src, ui_key, ui, force_open)
 	if(!ui)
 		ui = new(user, src, ui_key, "clockwork_slab", name, 800, 420, master_ui, state)
-		ui.set_autoupdate(FALSE) //we'll update this occasionally, but not as often as possible
 		ui.set_style("clockwork")
 		ui.open()
 
@@ -493,17 +492,6 @@
 			recollection_category = params["category"]
 			ui_interact(usr)
 	return 1
-
-/obj/item/clockwork/slab/proc/quickbind_to_slot(datum/clockwork_scripture/scripture, index) //takes a typepath(typecast for initial()) and binds it to a slot
-	if(!ispath(scripture) || !scripture || (scripture in quickbound))
-		return
-	while(LAZYLEN(quickbound) < index)
-		quickbound += null
-	var/datum/clockwork_scripture/quickbind_slot = GLOB.all_scripture[quickbound[index]]
-	if(quickbind_slot && !quickbind_slot.quickbind)
-		return //we can't unbind things we can't normally bind
-	quickbound[index] = scripture
-	update_quickbind()
 
 /obj/item/clockwork/slab/proc/update_quickbind()
 	for(var/datum/action/item_action/clock/quickbind/Q in actions)

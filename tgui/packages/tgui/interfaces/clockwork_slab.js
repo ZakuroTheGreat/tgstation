@@ -1,47 +1,74 @@
-<Section>
-  <Button
-    content = "Click"
-    onClick={() => act(ref, 'toggle'>{{data.recollection ? "Recital":"Recollection"}})}/>
-</Section>
-{!! data.recollection (
-  
-)}
-	 <ui-display>
-		{{{data.rec_text}}}
-		{{#each data.recollection_categories}}
-			<br><ui-button action='rec_category' params='{"category": "{{name}}"}'>{{{name}}} - {{{desc}}}</ui-button>
-		{{/each}}
-		{{{data.rec_section}}}
-		{{{data.rec_binds}}}
- 	 </ui-display>
-{{else}}
-	<ui-display title='Power' button>
- 	 <ui-section>
- 	   {{{data.power}}}
- 	 </ui-section>
-	</ui-display>
-	<ui-display>
-		<ui-section>
-			<ui-button state='{{data.selected == "Driver" ? "selected" : null}}' action='select' params='{"category": "Driver"}'>Driver</ui-button>
-			<ui-button state='{{data.selected == "Script" ? "selected" : null}}' action='select' params='{"category": "Script"}'>Scripts</ui-button>
-			<ui-button state='{{data.selected == "Application" ? "selected" : null}}' action='select' params='{"category": "Application"}'>Applications</ui-button>
-			<br>{{{data.tier_info}}}
-		</ui-section>
-		<ui-section>
-			{{{data.scripturecolors}}}
-		</ui-section><hr>
-		<ui-section>
-		{{#each data.scripture}}
-			<div><ui-button tooltip='{{{tip}}}' tooltip-side='right' action='recite' params='{"category": "{{type}}"}'>Recite {{{required}}}</ui-button>
-		 	 {{#if quickbind}}
-				{{#if bound}}
-					<ui-button action='bind' params='{"category": "{{type}}"}'>Unbind {{{bound}}}</ui-button>
-				{{else}}
-					<ui-button action='bind' params='{"category": "{{type}}"}'>Quickbind</ui-button>
-				{{/if}}
-		  	{{/if}}
-		  	{{{name}}} {{{descname}}} {{{invokers}}}</div>
-		{{/each}}
-		</ui-section>
-	</ui-display>
-{{/if}}
+import { Section, Button, LabeledList } from "../components";
+
+
+export const ClockworkSlab = props => {
+  const { act, data } = useBackend(props);
+  const recollection = data.recollection_categories || [];
+  const scripture = data.scripture || [];
+  return (
+    <Section>
+      <Button
+        content = "Click1"
+        onClick = {() => act(ref, "toggle", {data.recollection ? "Recital" : "Recollection"})}/>
+    </Section>
+    <Section>
+      {!! data.recollection && (
+        {data.rec_text}
+        {recollection.map (
+          <Button
+            content = "Click3"
+            onClick = {() => act(ref, "rec_category", {"category": "{name}"}>{name} - {desc} )}/>
+        )}
+        {data.rec_section}
+        {data.rec_binds}
+      )
+    </Section>
+    <Section>
+      <LabeledList>
+      {data.power}
+      </LabeledList>
+    </Section>
+    <Section>
+       <LabeledList>
+      <Button
+         content = "Click4"
+         disabled = { data.selected == "Driver" ? "selected" : null }
+         onClick = {() => act(ref, "select", {"category": "Driver"} >Driver< )}/>
+      <Button
+         content = "Click5"
+         disabled = {data.selectedd == "Script" ? "selected" : null}
+         onClick = {() => act(ref, "select", {"category" : "Script"} >Scripts< )}/>
+      <Button
+         content = "Click6"
+         disabled = { data.selected == "Application" ? "selected" : null}
+         onClick = {() => act(ref, "selected", {"category" : "Application"} >Applications<)}/>
+      {data.tier_info}
+      </LabeledList>
+      <LabeledList>
+        {data.scripturecolors}
+      </LabeledList>
+      <LabeledList>
+        {scripture.map (
+          <Button
+            content = "Click7"
+            tooltip = "{tip}"
+            tooltipPosition = "right"
+            onClick = {() => act(ref, "recite", {"category" : "{type}"}>Recite {required})}/>
+            {!! quickbound && (
+              {!! bound && (
+                <Button
+                  content = "Click8"
+                  onClick = {() => arc(ref, "bind", {"category": "{type}" }>Unbind {bound})}/>
+              ) || (
+                <Button
+                  content = "Click9"
+                  onClick = {() => act(ref, "bind", {"category": "{type}"}> Quickbind)}/>
+              )}
+            )}
+            {name} {descname} {invokers}
+        )}
+      </LabeledList>
+    </Section>
+      )}
+  )
+}
