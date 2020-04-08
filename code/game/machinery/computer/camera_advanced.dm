@@ -26,8 +26,6 @@
 			z_lock |= SSmapping.levels_by_trait(ZTRAIT_MINING)
 		if(lock_override & CAMERA_LOCK_CENTCOM)
 			z_lock |= SSmapping.levels_by_trait(ZTRAIT_CENTCOM)
-		if(lock_override & CAMERA_LOCK_REEBE)
-			z_lock |= SSmapping.levels_by_trait(ZTRAIT_REEBE)
 
 /obj/machinery/computer/camera_advanced/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock, idnum, override=FALSE)
 	for(var/i in networks)
@@ -281,7 +279,6 @@
 	else
 		playsound(origin, 'sound/machines/terminal_prompt_deny.ogg', 25, FALSE)
 
-
 //Used by servants of Ratvar! They let you beam to the station.
 /obj/machinery/computer/camera_advanced/ratvar
 	name = "ratvarian camera observer"
@@ -333,8 +330,6 @@
 
 /datum/action/innate/servant_warp/Activate()
 	if(QDELETED(target) || !(ishuman(owner) || iscyborg(owner)) || !owner.canUseTopic(target))
-		return
-	if(!GLOB.servants_active) //No leaving unless there's servants from the get-go
 		return
 	if(warping)
 		cancel = TRUE

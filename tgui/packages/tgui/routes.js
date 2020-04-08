@@ -35,6 +35,7 @@ import { ChemPress } from './interfaces/ChemPress';
 import { ChemReactionChamber } from './interfaces/ChemReactionChamber';
 import { ChemSplitter } from './interfaces/ChemSplitter';
 import { ChemSynthesizer } from './interfaces/ChemSynthesizer';
+import { ClockworkSlab } from './interfaces/clockwork_slab';
 import { CodexGigas } from './interfaces/CodexGigas';
 import { ComputerFabricator } from './interfaces/ComputerFabricator';
 import { Crayon } from './interfaces/Crayon';
@@ -270,6 +271,11 @@ const ROUTES = {
   },
   chem_synthesizer: {
     component: () => ChemDebugSynthesizer,
+    scrollable: false,
+  },
+  clockwork_slab: {
+    component: () => ClockworkSlab,
+    themes: 'clockwork',
     scrollable: false,
   },
   synthesizer: {
